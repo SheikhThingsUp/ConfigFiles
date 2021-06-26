@@ -12,6 +12,10 @@ Plug 'https://github.com/WolfgangMehner/perl-support'
 Plug 'dense-analysis/ale'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
+Plug 'https://github.com/vim-airline/vim-airline'
+Plug 'tibabit/vim-templates'
+Plug 'rust-lang/rust.vim'
+Plug 'cazador481/perlomni.vim'
 call plug#end()
 
 filetype plugin indent on
@@ -49,10 +53,12 @@ au BufNewFile,BufRead *.css,*.html
    \ set softtabstop=2|
    \ set shiftwidth=2
 
-"au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+highlight BadWhitespace ctermbg=red guibg=red
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h,*.pl,*.pm match BadWhitespace /\s\+$/
 
 if has("autocmd")
   augroup templates
     autocmd BufNewFile *.html 0r ~/.vim/templates/skeleton.html
   augroup END
 endif
+
